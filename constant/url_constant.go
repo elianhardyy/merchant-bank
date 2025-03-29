@@ -1,5 +1,3 @@
 package constant
 
-const (
-	URL = "http://localhost:7000"
-)
+const URL = "http://localhost:7000"

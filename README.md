@@ -52,7 +52,6 @@ A RESTful API service built with Go that facilitates interactions between mercha
 
    ```
    JWT_SECRET=your_jwt_secret_key
-   API_URL=http://localhost:7000
    ```
 
 4. Run the application:
@@ -128,7 +127,7 @@ curl -X POST http://localhost:8080/auth/login \
 curl -X POST http://localhost:8080/trx/create \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer your_token_here" \
-  -d '{"to":"2","amount":100}'
+  -d '{"customer_id":"1","merhcant_id":"2","amount":100}'
 ```
 
 ### View transaction history

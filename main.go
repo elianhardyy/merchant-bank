@@ -12,33 +12,48 @@ import (
 	"syscall"
 
 	"github.com/joho/godotenv"
+
+	"strings"
 )
 
 func init() {
 	err := godotenv.Load()
 	if err != nil {
-		log.Fatal("Error loading.env file")
+		log.Fatal("Error loading .env file")
 	}
 }
-func main() {
 
+func main() {
 	routes.InitRoute()
+	fmt.Println(constant.URL)
 	parsedURL, err := url.Parse(constant.URL)
 	if err != nil {
 		panic(err)
 	}
-	port := parsedURL.Port()
-	if port == "" {
-		port = "80"
+
+	host := parsedURL.Host
+	if strings.Contains(host, ":") {
+		_, port, _ := strings.Cut(host, ":")
+		if port == "" {
+			port = "80"
+		}
+		serverAddr := ":" + port
+		fmt.Println("Server address:", serverAddr)
+		runServer(serverAddr)
+	} else {
+		fmt.Println("No explicit port found, defaulting to 80")
+		runServer(":80")
 	}
-	serverAddr := ":" + port
-	fmt.Println(serverAddr)
+}
+
+func runServer(serverAddr string) {
 	server := &http.Server{
 		Addr:    serverAddr,
 		Handler: routes.R,
 	}
+
 	go func() {
-		log.Println("Server is running on port", port)
+		log.Println("Server is running on", serverAddr)
 		err := server.ListenAndServe()
 		if err != nil {
 			log.Fatalf("Server failed to start: %v", err)
