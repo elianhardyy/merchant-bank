@@ -25,6 +25,9 @@ func (cv *CustomerValidator) Validate(i interface{}) error {
 
 func validateUsername(fl validator.FieldLevel) bool {
 	username := fl.Field().String()
+	if len(username) == 0 {
+		return false
+	}
 	letterRegex := regexp.MustCompile(`[a-zA-Z]`)
 	hasLetter := letterRegex.MatchString(username)
 	numberRegex := regexp.MustCompile(`[0-9]`)
@@ -36,7 +39,9 @@ func validateUsername(fl validator.FieldLevel) bool {
 
 func validatePassword(fl validator.FieldLevel) bool {
 	password := fl.Field().String()
-
+	if len(password) == 0 {
+		return false
+	}
 	letterRegex := regexp.MustCompile(`[a-zA-Z]`)
 	hasLetter := letterRegex.MatchString(password)
 

@@ -20,3 +20,12 @@ type LogoutResponse struct {
 type RefreshResponse struct {
 	Token string `json:"token"`
 }
+
+type UserResponse struct {
+	ID       string   `json:"id"`
+	Username string   `json:"username"`
+	Email    string   `json:"email"`
+	Balance  float64  `json:"balance"`
+	IsActive bool     `json:"is_active"`
+	Roles    []string `json:"role"`
+}

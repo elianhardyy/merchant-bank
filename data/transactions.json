@@ -1,37 +1,43 @@
 [
   {
     "id": "1",
-    "customer_id": "8",
-    "activity_type": "FAILED_PAYMENT",
-    "timestamp": "2025-03-29T18:59:07.2574029+07:00",
-    "details": ""
+    "customer_id": "12",
+    "activity_type": "PAYMENT",
+    "timestamp": "2025-03-29T23:01:45.1976579+07:00",
+    "details": "Payment processed successfully",
+    "amount": 2000
   },
   {
     "id": "2",
-    "customer_id": "8",
-    "activity_type": "FAILED_PAYMENT",
-    "timestamp": "2025-03-29T18:59:41.8987696+07:00",
-    "details": ""
+    "customer_id": "12",
+    "activity_type": "PAYMENT",
+    "timestamp": "2025-03-29T23:03:21.7374391+07:00",
+    "details": "Payment processed successfully",
+    "amount": 2000
   },
   {
     "id": "3",
-    "customer_id": "8",
+    "customer_id": "12",
     "activity_type": "PAYMENT",
-    "timestamp": "2025-03-29T18:59:57.1853873+07:00",
-    "details": ""
+    "timestamp": "2025-03-29T23:03:53.9279525+07:00",
+    "details": "Payment processed successfully",
+    "amount": 2000
   },
   {
     "id": "4",
-    "customer_id": "5",
-    "activity_type": "FAILED_PAYMENT",
-    "timestamp": "2025-03-29T19:09:52.7569514+07:00",
-    "details": ""
+    "customer_id": "12",
+    "activity_type": "PAYMENT",
+    "timestamp": "2025-03-29T23:04:04.2115844+07:00",
+    "details": "Payment processed successfully",
+    "amount": 2000
   },
   {
     "id": "5",
-    "customer_id": "5",
+    "customer_id": "12",
     "activity_type": "PAYMENT",
-    "timestamp": "2025-03-29T19:10:40.0031039+07:00",
-    "details": ""
+    "timestamp": "2025-03-29T23:05:02.7760184+07:00",
+    "details": "Payment processed successfully",
+    "amount": 2000,
+    "merchant_id": "9"
   }
 ]

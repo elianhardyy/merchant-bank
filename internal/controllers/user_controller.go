@@ -8,21 +8,21 @@ import (
 	"net/http"
 )
 
-type CustomerController struct {
-	customerService services.CustomerService
+type UserController struct {
+	userService services.UserService
 }
 
-func NewCustomerController(customerService services.CustomerService) CustomerController {
-	return CustomerController{customerService: customerService}
+func NewUserController(userService services.UserService) UserController {
+	return UserController{userService: userService}
 }
 
-func (c *CustomerController) Register(w http.ResponseWriter, r *http.Request) {
+func (c *UserController) Register(w http.ResponseWriter, r *http.Request) {
 	var request request.RegisterRequest
 	if err := json.NewDecoder(r.Body).Decode(&request); err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
-	customer, err := c.customerService.CreateCustomer(request)
+	user, err := c.userService.CreateUser(request)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -30,18 +30,18 @@ func (c *CustomerController) Register(w http.ResponseWriter, r *http.Request) {
 	apiRes := response.ApiResponse{
 		Status:  http.StatusCreated,
 		Message: "Customer registered successfully",
-		Data:    customer,
+		Data:    user,
 	}
 	response.CommonResponse(w, apiRes)
 }
 
-func (c *CustomerController) Login(w http.ResponseWriter, r *http.Request) {
+func (c *UserController) Login(w http.ResponseWriter, r *http.Request) {
 	var request request.LoginRequest
 	if err := json.NewDecoder(r.Body).Decode(&request); err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
-	token, err := c.customerService.Login(request)
+	token, err := c.userService.Login(request)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -54,13 +54,13 @@ func (c *CustomerController) Login(w http.ResponseWriter, r *http.Request) {
 	response.CommonResponse(w, apiRes)
 }
 
-func (c *CustomerController) Logout(w http.ResponseWriter, r *http.Request) {
+func (c *UserController) Logout(w http.ResponseWriter, r *http.Request) {
 	token := r.Header.Get("Authorization")
 	if token == "" {
 		http.Error(w, "Authorization header required", http.StatusUnauthorized)
 		return
 	}
-	logoutResponse, err := c.customerService.Logout(token)
+	logoutResponse, err := c.userService.Logout(token)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -69,6 +69,20 @@ func (c *CustomerController) Logout(w http.ResponseWriter, r *http.Request) {
 		Status:  http.StatusOK,
 		Message: logoutResponse.Message,
 		Data:    logoutResponse,
+	}
+	response.CommonResponse(w, apiRes)
+}
+
+func (c *UserController) UserList(w http.ResponseWriter, r *http.Request) {
+	customers, err := c.userService.FindAllUser()
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	apiRes := response.ApiResponse{
+		Status:  http.StatusOK,
+		Message: "User list retrieved",
+		Data:    customers,
 	}
 	response.CommonResponse(w, apiRes)
 }

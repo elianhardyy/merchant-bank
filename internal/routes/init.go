@@ -16,10 +16,10 @@ var R = mux.NewRouter()
 func InitRoute() {
 	secret := []byte(os.Getenv("JWT_SECRET"))
 	token := security.NewTokenService(secret)
-	var customers []models.Customer
-	err := utils.ReadJSONFile(constant.CUSTOMER_FILE, &customers)
+	var customers []models.User
+	err := utils.ReadJSONFile(constant.USER_FILE, &customers)
 	if err != nil {
-		customers = []models.Customer{}
+		customers = []models.User{}
 	}
 
 	var roles []models.Role
@@ -40,7 +40,7 @@ func InitRoute() {
 		transactions = []models.Transaction{}
 	}
 
-	customerApi := injection.InitCustomerAPI(customers, roles, userRoles, token)
+	customerApi := injection.InitUserAPI(customers, roles, userRoles, token)
 	UserRoutes(customerApi, token)
 
 	transactionApi := injection.InitTransactionAPI(transactions, customers, roles, userRoles)

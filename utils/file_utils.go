@@ -9,7 +9,7 @@ import (
 )
 
 func EnsureJSONFiles() {
-	files := []string{constant.CUSTOMER_FILE, constant.MERCHANT_FILE, constant.TRANSACTION_FILE}
+	files := []string{constant.USER_FILE, constant.MERCHANT_FILE, constant.TRANSACTION_FILE}
 
 	for _, filepath := range files {
 		if !fileExists(filepath) {
@@ -35,7 +35,7 @@ func createEmptyJSONFile(filePath string) error {
 
 	var initialData interface{}
 	switch filePath {
-	case constant.CUSTOMER_FILE:
+	case constant.USER_FILE:
 		initialData = []map[string]interface{}{}
 	case constant.MERCHANT_FILE:
 		initialData = []map[string]interface{}{}

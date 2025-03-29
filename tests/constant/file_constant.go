@@ -1,4 +1,4 @@
-package constant
+package constant_test
 
 const (
 	USER_FILE        = "./data/users.json"

@@ -7,10 +7,10 @@ import (
 	"go-json/internal/services"
 )
 
-func InitTransactionAPI(transaction []models.Transaction, customer []models.Customer, role []models.Role, userRole []models.UserRole) controllers.TransactionController {
+func InitTransactionAPI(transaction []models.Transaction, User []models.User, role []models.Role, userRole []models.UserRole) controllers.TransactionController {
 	transactionRepository := repositories.NewTransactionRepository(transaction)
 	roleRepository := repositories.NewRoleRepository(role, userRole)
-	userRepository := repositories.NewCustomerRepository(customer, role, userRole)
-	transactionService := services.NewPaymentService(userRepository, transactionRepository, roleRepository)
+	userRepository := repositories.NewUserRepository(User, role, userRole)
+	transactionService := services.NewTransactionService(userRepository, transactionRepository, roleRepository)
 	return controllers.NewTransactionController(transactionService)
 }

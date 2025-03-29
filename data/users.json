@@ -70,5 +70,37 @@
     "password": "12345678",
     "balance": 0,
     "is_active": false
+  },
+  {
+    "id": "10",
+    "username": "zulkifli",
+    "email": "zulkifli@mail.com",
+    "password": "12345678",
+    "balance": 0,
+    "is_active": true
+  },
+  {
+    "id": "11",
+    "username": "zainul",
+    "email": "zainul@mail.com",
+    "password": "12345678",
+    "balance": 0,
+    "is_active": true
+  },
+  {
+    "id": "12",
+    "username": "mamang",
+    "email": "mamang@mail.com",
+    "password": "12345678",
+    "balance": 2000,
+    "is_active": true
+  },
+  {
+    "id": "13",
+    "username": "",
+    "email": "mamango@mail.com",
+    "password": "",
+    "balance": 0,
+    "is_active": false
   }
 ]

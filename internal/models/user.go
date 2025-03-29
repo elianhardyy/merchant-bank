@@ -1,6 +1,6 @@
 package models
 
-type Customer struct {
+type User struct {
 	ID       string  `json:"id"`
 	Username string  `json:"username" validate:"required,min=5,alphanum,username_check"`
 	Email    string  `json:"email" validate:"required,email"`

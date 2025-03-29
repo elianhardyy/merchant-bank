@@ -63,7 +63,6 @@ func (r *roleRepository) FindRoleByUserID(userID string) (*[]models.UserRole, er
 			userRoles = append(userRoles, ur)
 		}
 	}
-
 	fmt.Println("UserRoles found for userID:", userID, "=>", userRoles)
 
 	if len(userRoles) == 0 {

@@ -7,6 +7,9 @@ import (
 	"log"
 	"net/http"
 	"net/url"
+	"os"
+	"os/signal"
+	"syscall"
 
 	"github.com/joho/godotenv"
 )
@@ -30,5 +33,20 @@ func main() {
 	}
 	serverAddr := ":" + port
 	fmt.Println(serverAddr)
-	http.ListenAndServe(serverAddr, routes.R)
+	server := &http.Server{
+		Addr:    serverAddr,
+		Handler: routes.R,
+	}
+	go func() {
+		log.Println("Server is running on port", port)
+		err := server.ListenAndServe()
+		if err != nil {
+			log.Fatalf("Server failed to start: %v", err)
+		}
+	}()
+
+	quit := make(chan os.Signal, 1)
+	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
+	<-quit
+	log.Println("Server shutting down")
 }
