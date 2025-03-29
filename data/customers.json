@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1",
+    "username": "lala",
+    "email": "lala@mail.com",
+    "password": "12345678",
+    "balance": 0,
+    "is_active": false
+  },
+  {
+    "id": "2",
+    "username": "lalass",
+    "email": "lalass@mail.com",
+    "password": "12345678",
+    "balance": 0,
+    "is_active": false
+  },
+  {
+    "id": "3",
+    "username": "elian",
+    "email": "elian@mail.com",
+    "password": "12345678",
+    "balance": 0,
+    "is_active": false
+  },
+  {
+    "id": "4",
+    "username": "elianos",
+    "email": "elianos@mail.com",
+    "password": "12345678",
+    "balance": 0,
+    "is_active": false
+  },
+  {
+    "id": "5",
+    "username": "elianosa",
+    "email": "elianosa@mail.com",
+    "password": "12345678",
+    "balance": 3000,
+    "is_active": true
+  },
+  {
+    "id": "6",
+    "username": "elipo",
+    "email": "eliapo@mail.com",
+    "password": "12345678",
+    "balance": 0,
+    "is_active": false
+  },
+  {
+    "id": "7",
+    "username": "eliassa",
+    "email": "eliassa@mail.com",
+    "password": "12345678",
+    "balance": 0,
+    "is_active": false
+  },
+  {
+    "id": "8",
+    "username": "eliassan",
+    "email": "eliassan@mail.com",
+    "password": "12345678",
+    "balance": 5000,
+    "is_active": true
+  },
+  {
+    "id": "9",
+    "username": "hasan",
+    "email": "hasan@mail.com",
+    "password": "12345678",
+    "balance": 0,
+    "is_active": false
+  }
+]

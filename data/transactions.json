@@ -1,0 +1,37 @@
+[
+  {
+    "id": "1",
+    "customer_id": "8",
+    "activity_type": "FAILED_PAYMENT",
+    "timestamp": "2025-03-29T18:59:07.2574029+07:00",
+    "details": ""
+  },
+  {
+    "id": "2",
+    "customer_id": "8",
+    "activity_type": "FAILED_PAYMENT",
+    "timestamp": "2025-03-29T18:59:41.8987696+07:00",
+    "details": ""
+  },
+  {
+    "id": "3",
+    "customer_id": "8",
+    "activity_type": "PAYMENT",
+    "timestamp": "2025-03-29T18:59:57.1853873+07:00",
+    "details": ""
+  },
+  {
+    "id": "4",
+    "customer_id": "5",
+    "activity_type": "FAILED_PAYMENT",
+    "timestamp": "2025-03-29T19:09:52.7569514+07:00",
+    "details": ""
+  },
+  {
+    "id": "5",
+    "customer_id": "5",
+    "activity_type": "PAYMENT",
+    "timestamp": "2025-03-29T19:10:40.0031039+07:00",
+    "details": ""
+  }
+]

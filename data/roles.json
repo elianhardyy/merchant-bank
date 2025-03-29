@@ -1,0 +1,12 @@
+[
+  {
+    "id": "1",
+    "name": "merchant",
+    "is_default": false
+  },
+  {
+    "id": "2",
+    "name": "customer",
+    "is_default": true
+  }
+]
