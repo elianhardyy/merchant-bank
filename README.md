@@ -66,6 +66,9 @@ A RESTful API service built with Go that facilitates interactions between mercha
    # Install Air first if you haven't
    go install github.com/cosmtrek/air@latest
 
+   # if Air on above didn't work install another package
+   go install github.com/air-verse/air@latest
+   
    # Run with Air
    air
    ```
